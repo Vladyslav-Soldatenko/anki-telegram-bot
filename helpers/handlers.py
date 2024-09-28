@@ -1,5 +1,3 @@
-# bot/handlers.py
-
 import os
 import csv
 from telegram import Update

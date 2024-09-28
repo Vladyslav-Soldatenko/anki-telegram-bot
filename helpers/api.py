@@ -1,5 +1,3 @@
-# bot/api.py
-
 import httpx
 import logging
 from typing import List, Dict, Any
