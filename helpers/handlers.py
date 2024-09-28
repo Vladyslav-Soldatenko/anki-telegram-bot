@@ -7,9 +7,6 @@ from .config import CSV_PATH
 from dotenv import load_dotenv
 import logging
 
-# Load environment variables from .env file
-load_dotenv()
-
 # Enable logging to help with debugging
 logger = logging.getLogger(__name__)
 
@@ -18,7 +15,6 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
     if update.message and update.message.text and CSV_PATH:
         user_message: str = update.message.text.strip()
         logger.info(f"Received message: {user_message}")
-        
         definition = await get_word_definition(user_message)
         if definition:
             logger.info(f"Definition for '{user_message}': {definition}")
