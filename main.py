@@ -1,5 +1,6 @@
 from telegram.ext import ApplicationBuilder, MessageHandler, filters
-from helpers import handle_message, TELEGRAM_BOT_TOKEN,logger
+from helpers import handle_message, TELEGRAM_BOT_TOKEN, logger
+
 
 def main() -> None:
     if TELEGRAM_BOT_TOKEN is None:
@@ -10,11 +11,14 @@ def main() -> None:
     application = ApplicationBuilder().token(TELEGRAM_BOT_TOKEN).build()
 
     # Add message handler to print received messages to the console
-    application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
+    application.add_handler(
+        MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message)
+    )
 
     # Start the bot
     logger.info("Bot is starting...")
     application.run_polling()
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()
