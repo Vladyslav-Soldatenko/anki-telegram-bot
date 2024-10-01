@@ -60,7 +60,7 @@ def append_to_csv(front: str, back: str) -> None:
 
     try:
         with open(csv_file_path, mode="a", newline="", encoding="utf-8") as csv_file:
-            csv_writer = csv.writer(csv_file, delimiter=";")
+            csv_writer = csv.writer(csv_file, delimiter="$")
             if not file_exists:
                 # Write header if the file is new
                 csv_writer.writerow(["Front", "Back"])
